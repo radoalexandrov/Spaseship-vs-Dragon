@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Spaceship vs Dragon</title>
+		<script type="text/javascript" src="game.js"></script>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="game">
+			<div id="ship"></div>
+			<div id="enemy"></div>
+			<div id="missle"></div>
+			<div id="stats">
+             <p id="bulletLabel">Bullets:</p>
+             <p id="bulletsDigits">10</p>
+             <p id="pointsLabel">Points:</p>
+             <p id="points">0</p>
+      	  </div>		
+		</div>
+		
+		<script>
+		requestAnumationFrame(booletMove(),shoot());
+		function booletMove(){
+		      var boolets = document.getElementsByClassName('bul');
+
+		      for(var i = 0; i < boolets.length ; i++){
+		         boolets[i].style.bottom = (parseInt(boolets[i].style.bottom)+10) + 'px';
+		         if(parseInt(boolets[i].style.bottom) == 550){
+		            var enemyLeft = parseInt(document.getElementById("enemy").style.left);
+		            var booletLeft = parseInt(boolets[i].style.left)-3;
+		            if(booletLeft>enemyLeft && booletLeft<(enemyLeft+50)){
+		               var numb = parseInt(document.getElementById("points").innerHTML);
+		               numb++;
+		               document.getElementById("points").innerHTML = numb.toString();
+		            }
+		            boolets[i].parentNode.removeChild(boolets[i]);
+		         }
+		      }
+		   }
+
+		   function shoot(){
+
+		      var numberOfBullets = parseInt(document.getElementById("bulletsDigits").innerHTML);
+		      if(numberOfBullets > 0){
+
+		         numberOfBullets--;
+
+		         document.getElementById("bulletsDigits").innerHTML = numberOfBullets.toString();
+
+
+		         var bullet =  document.getElementById('missle');
+		         bullet.className = "bul";
+		         bullet.style.bottom = 20 + 'px';
+		         bullet.style.left = (shipPosition.left+3) + 'px';
+
+		         document.getElementById('game').appendChild(bullet);
+		      }
+		   }
+			
+		</script>
+	</body>
+</html>

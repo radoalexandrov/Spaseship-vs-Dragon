@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+
+#game {
+	background-image: url("img/backgr.jpg");
+	width: 80%;
+	height: 45em;
+}
+
+#ship {
+	background-image:url("img/ship1.png");
+	width: 198px;
+	height: 196px;
+	position: absolute;
+	background-position: center;
+	bottom:11px;
+}
+
+#enemy {
+	background-image:url("img/drag.png");
+	width: 198px;
+	height: 196px;
+	position: absolute;
+	
+	
+}
+
+#missle{
+	background-image: url("img/missle.png");
+	position: absolute;
+	width: 43px;
+	height: 83px;
+	
+	
+	
+}
+
+.bul {
+    position: absolute;
+}
+
+#stats {
+   position: absolute;
+   top:0;
+   right:5%;
+   border: 5px groove yellow;
+   padding: 10px;
+}
